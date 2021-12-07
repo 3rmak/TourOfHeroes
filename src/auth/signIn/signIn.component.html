@@ -1,0 +1,11 @@
+<form [formGroup]="signInForm" (submit)="sendLoginForm()">
+  <h2>Login Page</h2>
+  <div class="form-group mb-3">
+    <label class="form-label">Username</label>
+    <input class="form-control" formControlName="username" />
+
+    <label class="form-label">Password</label>
+    <input class="form-control" formControlName="password" />
+  </div>
+  <button type="submit" class="btn btn-primary">Login</button>
+</form>

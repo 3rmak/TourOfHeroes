@@ -1,0 +1,12 @@
+<h2>Top Heroes</h2>
+<div class="dashboard">
+  <div
+    class="dashboard-hero"
+    *ngFor="let hero of heroes"
+    (click)="selectHero(hero.id)"
+  >
+    {{hero.name}}
+  </div>
+</div>
+
+

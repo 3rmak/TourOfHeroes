@@ -1,0 +1,25 @@
+<h2>My Heroes</h2>
+<div class="list">
+  <div
+    class="list-hero"
+    *ngFor="let hero of heroes"
+    [class.selected-list-item]="selectedHero?.id == hero.id"
+    (click)="selectHero(hero.id)"
+  >
+    <span class="badge">{{hero.id}}</span>{{hero.name}}
+  </div>
+</div>
+<div
+  class="hero-preview"
+  *ngIf="selectedHero"
+>
+  <p>{{selectedHero.name.toUpperCase()}} is my hero</p>
+  <button
+    class="btn btn-outline-secondary"
+    (click)="gotoHero(selectedHero.id)"
+  >
+    View details
+  </button>
+</div>
+
+
