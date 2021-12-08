@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, DoCheck, OnInit } from "@angular/core";
 
 import { UserStorageService } from "../shared";
 
@@ -7,9 +7,10 @@ import { UserStorageService } from "../shared";
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit{
+export class NavbarComponent implements OnInit, DoCheck {
   public username: string = '';
   // public role: string = '';
+  public test: string = '5';
   loginLogoutText: string = 'Login';
   loginLogoutUrl: string = '/signin';
   constructor(
@@ -28,5 +29,22 @@ export class NavbarComponent implements OnInit{
 
     this.loginLogoutText = `Hello, ${this.username}`;
     this.loginLogoutUrl = `/signout`
+  }
+
+  ngDoCheck() {
+    const response = this.userStorageService.getFromLocalStorage();
+    if ((!response && !this.username) || (response && this.username)) {
+      return;
+    } else if (!response) {
+      this.loginLogoutText = `Login`;
+      this.loginLogoutUrl = `/signin`
+    } else if (response) {
+      const { username, role } = response;
+      this.username = username;
+      // this.role = role;
+
+      this.loginLogoutText = `Hello, ${this.username}`;
+      this.loginLogoutUrl = `/signout`
+    }
   }
 }

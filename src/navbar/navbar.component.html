@@ -3,5 +3,5 @@
   <button type="button" class="btn btn-outline-primary" routerLink="/dashboard" routerLinkActive="active-link" >Dashboard</button>
   <button type="button" class="btn btn-outline-primary" routerLink="/list" routerLinkActive="active-link" >Heroes</button>
 
-  <button type="button" class="btn btn-outline-success" routerLink="/signin" routerLinkActive="active-link">{{loginLogoutText}}</button>
+  <button type="button" class="btn btn-outline-success" [routerLink]="loginLogoutUrl" routerLinkActive="active-link">{{loginLogoutText}}</button>
 </nav>
