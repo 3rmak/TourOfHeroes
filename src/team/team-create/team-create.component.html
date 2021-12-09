@@ -1,0 +1,19 @@
+<h4>New team form</h4>
+<form [formGroup]="teamForm" (submit)="createHeroTeam()" >
+  <label class="form-label">Team name</label>
+  <input class="form-control" formControlName="name">
+
+  <label class="form-label">Select team members</label>
+  <div class="form-check" *ngFor="let hero of heroes">
+    <input
+      class="form-check-input"
+      type="checkbox"
+      (change)="onCheckboxChange($event, hero)"
+    >
+    <label class="form-check-label">
+      {{hero.name}}
+    </label>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Create</button>
+</form>

@@ -1,0 +1,16 @@
+<div *ngIf="team">
+
+  <div class="row">
+    <div class="col-sm-8">
+      <h4>Magnificent team {{team.name}}!</h4>
+      <h5>Heroes</h5>
+    </div>
+    <div class="col-sm-4">
+      One of three columns
+    </div>
+  </div>
+
+  <div *ngFor="let hero of team.members">
+    {{hero.name}}
+  </div>
+</div>

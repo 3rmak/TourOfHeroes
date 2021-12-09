@@ -6,6 +6,7 @@ import { RouterModule } from "@angular/router";
 import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
 import { SignInComponent } from "./signIn/signIn.component";
 import { SignOutComponent } from "./signout/signOut.component";
+import { SignUpComponent } from './signUp/signup.component';
 
 import { authRoutes } from "./auth.routes";
 
@@ -13,7 +14,8 @@ import { authRoutes } from "./auth.routes";
   declarations: [
     AuthLayoutComponent,
     SignInComponent,
-    SignOutComponent
+    SignOutComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

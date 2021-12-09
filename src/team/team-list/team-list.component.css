@@ -1,0 +1,48 @@
+.team-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 70px;
+  height: 70px;
+  margin: 0px 10px;
+
+  border-radius: 4px;
+  border: 0.1em solid slategray;
+  color: #405061;
+  background-color: #e6e6e6;
+  position: relative;
+  cursor: pointer;
+  transition: all ease 0.2s;
+}
+
+.team-list-item:hover {
+  color: white;
+  background-color: #8699ad;
+
+  box-shadow: 0px 2px orangered;
+}
+
+.team-list-item:hover > .hidden-members {
+  background-color: lightsteelblue;
+  color: #2c3a41;
+  visibility: visible;
+}
+
+.hidden-members {
+  position: absolute;
+  top: -40px;
+  left: -165px;
+  width: 150px;
+  z-index: 1;
+
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 4px;
+
+  visibility: hidden;
+}
+
+.hero-item {
+
+}

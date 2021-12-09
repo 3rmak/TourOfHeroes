@@ -1,6 +1,7 @@
 import { Component, DoCheck, OnInit } from "@angular/core";
 
 import { UserStorageService } from "../shared";
+import { userRolesEnum } from "../config";
 
 @Component({
   selector: 'navbar-component',
@@ -9,8 +10,8 @@ import { UserStorageService } from "../shared";
 })
 export class NavbarComponent implements OnInit, DoCheck {
   public username: string = '';
-  // public role: string = '';
-  public test: string = '5';
+  public role: string = '';
+  public showCreateBtn: boolean = false;
   loginLogoutText: string = 'Login';
   loginLogoutUrl: string = '/signin';
   constructor(
@@ -25,7 +26,7 @@ export class NavbarComponent implements OnInit, DoCheck {
 
     const { username, role } = response;
     this.username = username;
-    // this.role = role;
+    this.role = role;
 
     this.loginLogoutText = `Hello, ${this.username}`;
     this.loginLogoutUrl = `/signout`
@@ -41,7 +42,10 @@ export class NavbarComponent implements OnInit, DoCheck {
     } else if (response) {
       const { username, role } = response;
       this.username = username;
-      // this.role = role;
+      this.role = role;
+      if (role == userRolesEnum.ADMIN) {
+        this.showCreateBtn = true;
+      }
 
       this.loginLogoutText = `Hello, ${this.username}`;
       this.loginLogoutUrl = `/signout`

@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
 
-import { userRolesEnum } from '../../config';
+import { userRolesEnum } from '../config';
 
-import { CustomResponse } from "../shared";
-import { User } from '../shared';
+import { CustomResponse } from "./customResponse";
+import { User } from './user';
 
 const userList: User[] = [
   new User('admin', 'admin', userRolesEnum.ADMIN),

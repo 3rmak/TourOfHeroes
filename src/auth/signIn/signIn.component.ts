@@ -2,8 +2,7 @@ import { Component } from "@angular/core";
 import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
 import { Router } from "@angular/router";
 
-import { PreviousPageService, UserStorageService } from '../../shared'
-import { UserService } from "../shared";
+import { PreviousPageService, UserService, UserStorageService } from '../../shared';
 
 import { userRolesEnum } from "../../config";
 
@@ -11,7 +10,7 @@ import { userRolesEnum } from "../../config";
   selector: 'sign-in',
   templateUrl: './signIn.component.html'
 })
-export class SignInComponent{
+export class SignInComponent {
   options : Array<string> = Object.values(userRolesEnum);
   constructor(
     private fb: FormBuilder,

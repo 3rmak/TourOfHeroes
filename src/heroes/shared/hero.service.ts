@@ -1,17 +1,6 @@
 import { Injectable } from "@angular/core";
 
-import { Hero } from '../shared';
-
-const heroesList = [
-  new Hero(1, 'Paul'),
-  new Hero(2, 'Corey'),
-  new Hero(3, 'Shawn'),
-  new Hero(4, 'Chris'),
-  new Hero(5, 'Mick'),
-  new Hero(6, 'Sid'),
-  new Hero(7, 'James'),
-  new Hero(8, 'Joey'),
-]
+import { Hero, heroesList } from '../shared';
 
 @Injectable()
 export class HeroService {
@@ -29,5 +18,16 @@ export class HeroService {
   post(hero: Hero) {
     this.heroes.push(hero);
   }
+
+  updateTeamStatus(heroId: number, teamId: number) : boolean {
+    const heroIndex = this.heroes.findIndex(item => item.id == heroId);
+    if (heroIndex < 0) {
+      return false;
+    }
+
+    this.heroes[heroIndex].teamId = teamId;
+    return true;
+  }
+
 
 }
