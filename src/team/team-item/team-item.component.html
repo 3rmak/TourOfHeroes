@@ -1,4 +1,7 @@
 <div *ngIf="team">
+  <div class="layout"></div>
+  <div class="modal"></div>
+  <div class="close-x"></div>
 
   <div class="row">
     <div class="col-sm-8">
@@ -6,11 +9,17 @@
       <h5>Heroes</h5>
     </div>
     <div class="col-sm-4">
-      One of three columns
+      <button class="btn btn-success">Add hero to team</button>
     </div>
   </div>
 
-  <div *ngFor="let hero of team.members">
-    {{hero.name}}
+  <div class="hero-container">
+    <div
+      *ngFor="let hero of team.members"
+      class="hero-item"
+    >
+      {{hero.name}}
+    </div>
   </div>
+
 </div>
