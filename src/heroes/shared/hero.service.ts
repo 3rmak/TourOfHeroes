@@ -19,7 +19,7 @@ export class HeroService {
     this.heroes.push(hero);
   }
 
-  updateTeamStatus(heroId: number, teamId: number) : boolean {
+  updateTeamMembers(heroId: number, teamId: number | undefined) : boolean {
     const heroIndex = this.heroes.findIndex(item => item.id == heroId);
     if (heroIndex < 0) {
       return false;

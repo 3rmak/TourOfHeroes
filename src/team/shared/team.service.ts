@@ -1,27 +1,17 @@
 import { Injectable } from '@angular/core';
 
-import { Hero, HeroService } from "../../heroes/shared";
-import { Team } from "./team";
+import { Hero } from "../../heroes/shared";
+import { ITeam, Team } from "./team";
 
 const teamList: Team[] = [
-  new Team('Slipknot', [
-    new Hero(1, 'Paul'),
-    new Hero(2, 'Corey'),
-    new Hero(3, 'Shawn'),
-    new Hero(4, 'Chris')
-  ])
+  new Team('Slipknot'),
+  new Team('Abba')
 ]
-
-interface TeamRequest {
-  id?: number,
-  name?: string
-}
 
 @Injectable()
 export class TeamService {
   private teams: Team[] = teamList;
   constructor(
-    private heroService: HeroService
   ) { }
 
   getAll(): Team[] {
@@ -45,5 +35,19 @@ export class TeamService {
       return undefined;
     }
     return newTeam;
+  }
+
+  editTeam(teamId: number, body: ITeam): boolean {
+    const teamIndex = this.teams.findIndex((item) => item.id == teamId);
+    if (teamIndex < 0) {
+      return false;
+    }
+
+    const bodyEntries = Object.entries(body);
+    bodyEntries.forEach(([key, value]) => {
+      // @ts-ignore
+      this.teams[teamIndex][key] = value;
+    })
+    return true;
   }
 }

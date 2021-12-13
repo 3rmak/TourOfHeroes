@@ -1,7 +1,9 @@
 <div *ngIf="team">
-  <div class="layout"></div>
-  <div class="modal"></div>
-  <div class="close-x"></div>
+  <div *appOpenModal="showModal">
+    <div class="layout"></div>
+    <app-heroes-add-form [team]="team"></app-heroes-add-form>
+    <div class="close-x" (click)="addHeroModal()"></div>
+  </div>
 
   <div class="row">
     <div class="col-sm-8">
@@ -9,7 +11,7 @@
       <h5>Heroes</h5>
     </div>
     <div class="col-sm-4">
-      <button class="btn btn-success">Add hero to team</button>
+      <button class="btn btn-success" (click)="addHeroModal()">Add hero to team</button>
     </div>
   </div>
 
@@ -17,6 +19,8 @@
     <div
       *ngFor="let hero of team.members"
       class="hero-item"
+      appRemoveHero
+      (click)="removeHero(hero)"
     >
       {{hero.name}}
     </div>

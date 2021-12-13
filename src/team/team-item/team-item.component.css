@@ -2,17 +2,25 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+
+  justify-items: center;
 }
 
 .hero-item {
   padding: 10px 4px ;
   border: 1px solid lightslategray;
-  flex-basis: auto;
+  /*flex-basis: 200px;*/
   display: flex;
   justify-content: center;
   width: 10em;
 
   cursor: pointer;
+  transition: 0.2s all ease;
+}
+
+.hero-item:hover {
+  color: orangered;
+  border: 1px solid orangered;
 }
 
 .layout {
@@ -28,18 +36,8 @@
   opacity: 0.2;
 }
 
-.modal {
-  display: block;
-  z-index: 2;
-  top: 23%;
-  left: 35%;
-  width: 30%;
-  height: 60%;
-  background: green;
-  position: absolute;
-}
-
 .close-x {
+  display: block;
   position: absolute;
   z-index: 2;
   cursor: pointer;

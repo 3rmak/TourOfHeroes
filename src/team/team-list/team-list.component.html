@@ -1,22 +1,33 @@
-<h4>Team list</h4>
+<div class="row">
+  <div class="col-sm-8">
+    <h4>Team list</h4>
+  </div>
+
+  <div class="col-sm-4" *ngIf="showCreateBtn">
+    <button type="button" class="btn btn-outline-success" [routerLink]="['..', 'create']" routerLinkActive="active-link">Create team</button>
+  </div>
+</div>
+
 <div *ngIf="!teams.length">
   <p>team-list works, but still empty</p>
 </div>
 
-<div
-  *ngFor="let team of teams"
-  [routerLink]="['..', team.id]"
-  class="team-list-item"
->
-  {{team.name}}
+<div class="d-flex">
+  <div
+    *ngFor="let team of teams"
+    [routerLink]="['..', team.id]"
+    class="team-list-item"
+  >
+    {{team.name}}
 
-  <div *ngIf="team.members" class="hidden-members">
-    <p>{{team.name}} star heroes</p>
-    <div *ngFor="let hero of team.members" class="hero-item">
-      {{hero.name}}
+    <div *ngIf="team.members" class="hidden-members">
+      <p>{{team.name}} star heroes</p>
+      <div *ngFor="let hero of team.members" class="hero-item">
+        {{hero.name}}
+      </div>
     </div>
-  </div>
 
+  </div>
 </div>
 
 

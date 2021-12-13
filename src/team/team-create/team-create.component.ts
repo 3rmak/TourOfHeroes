@@ -12,6 +12,7 @@ import { Hero, HeroService } from "../../heroes/shared";
 export class TeamCreateComponent implements OnInit {
   heroes: Hero[] = [];
   teamMembers: Hero[] = [];
+
   constructor(
     private fb: FormBuilder,
     private teamService: TeamService,
@@ -33,7 +34,7 @@ export class TeamCreateComponent implements OnInit {
       return;
     }
     members.forEach((member: Hero) => {
-      this.heroService.updateTeamStatus(member.id, createdTeam.id);
+      this.heroService.updateTeamMembers(member.id, createdTeam.id);
     })
 
     alert('Success');
@@ -48,13 +49,8 @@ export class TeamCreateComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('all teams', this.teamService.getAll());
-
     const all = this.heroService.getAll();
-    console.log('all heroes', all)
-
     const heroes = all.filter(hero => !hero.teamId);
-
     this.heroes = heroes;
   }
 }
