@@ -1,0 +1,22 @@
+form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2;
+  top: 23%;
+  left: 35%;
+  width: 30%;
+  height: 60%;
+  padding: 2px 12px;
+  background: white;
+  position: absolute;
+}
+
+.select-list {
+  height: 70%;
+  width: 90%;
+  margin-bottom: 20px;
+  padding: 3px;
+  /*overflow:hidden;*/
+  overflow-y:scroll;
+}
