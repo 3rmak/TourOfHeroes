@@ -1,0 +1,10 @@
+<div *ngIf="team" class="hero-container">
+  <div
+    *ngFor="let hero of team.members"
+    class="hero-item"
+    appRemoveHero
+    (click)="removeHero(hero)"
+  >
+    {{hero.name}}
+  </div>
+</div>
