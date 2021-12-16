@@ -15,15 +15,8 @@
     </div>
   </div>
 
-  <div class="hero-container">
-    <div
-      *ngFor="let hero of team.members"
-      class="hero-item"
-      appRemoveHero
-      (click)="removeHero(hero)"
-    >
-      {{hero.name}}
-    </div>
-  </div>
+  <app-team-heroes-list
+    [team]="team"
+  ></app-team-heroes-list>
 
 </div>

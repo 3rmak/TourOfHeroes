@@ -13,6 +13,7 @@ import { teamRoutes } from "./team.routes";
 import { TeamService } from "./shared";
 import { HeroesAddFormComponent } from './team-item/heroes-add-form/heroes-add-form.component';
 import { RemoveHeroDirective } from './team-item/remove-hero.directive';
+import { TeamHeroesListComponent } from './team-item/team-heroes-list/team-heroes-list.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { RemoveHeroDirective } from './team-item/remove-hero.directive';
     TeamCreateComponent,
     OpenModalDirective,
     HeroesAddFormComponent,
-    RemoveHeroDirective
+    RemoveHeroDirective,
+    TeamHeroesListComponent
   ],
   imports: [
     BrowserModule,
