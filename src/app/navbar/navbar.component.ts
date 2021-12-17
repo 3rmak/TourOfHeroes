@@ -31,18 +31,21 @@ export class NavbarComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck() {
+    console.log('doCheckHook');
     const response = this.userStorageService.getFromLocalStorage();
     if ((!response && !this.username) || (response && this.username)) {
       return;
+
     } else if (!response) {
       this.loginLogoutText = `Login`;
-      this.loginLogoutUrl = `/signin`
+      this.loginLogoutUrl = `/signin`;
+      this.username = '';
+      this.role = '';
+
     } else if (response) {
       const { username, role } = response;
       this.username = username;
       this.role = role;
-
-
       this.loginLogoutText = `Hello, ${this.username}`;
       this.loginLogoutUrl = `/signout`
     }
