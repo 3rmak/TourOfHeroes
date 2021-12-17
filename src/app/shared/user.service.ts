@@ -17,6 +17,15 @@ const userList: User[] = [
 export class UserService {
   private users: User[] = userList;
 
+  isEmailTaken(username: string): boolean {
+    const user = this.users.find(item => item.username == username);
+    if (user) {
+      return true;
+    }
+
+    return false;
+  }
+
   verifyUserCredentials(username: string, password: string): CustomResponse {
     const user = this.users.find(item => item.username == username);
     if (user?.password == password) {

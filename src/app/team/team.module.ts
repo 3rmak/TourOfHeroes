@@ -3,17 +3,18 @@ import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 
+import { HeroesAddFormComponent } from './team-item/heroes-add-form/heroes-add-form.component';
 import { TeamCreateComponent } from './team-create/team-create.component';
+import { TeamHeroesListComponent } from './team-item/team-heroes-list/team-heroes-list.component';
 import { TeamLayoutComponent } from "./team-layout/team-layout.component";
-import { TeamItemComponent } from './team-item/team-item.component';
 import { TeamListComponent } from './team-list/team-list.component';
-import { OpenModalDirective } from './team-item/open-modal.directive';
+import { TeamItemComponent } from './team-item/team-item.component';
 
 import { teamRoutes } from "./team.routes";
 import { TeamService } from "./shared";
-import { HeroesAddFormComponent } from './team-item/heroes-add-form/heroes-add-form.component';
+import { CheckUserPermissionDirective } from './team-item/check-user-permission.directive';
+import { OpenModalDirective } from './team-item/open-modal.directive';
 import { RemoveHeroDirective } from './team-item/remove-hero.directive';
-import { TeamHeroesListComponent } from './team-item/team-heroes-list/team-heroes-list.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TeamHeroesListComponent } from './team-item/team-heroes-list/team-heroe
     OpenModalDirective,
     HeroesAddFormComponent,
     RemoveHeroDirective,
-    TeamHeroesListComponent
+    TeamHeroesListComponent,
+    CheckUserPermissionDirective
   ],
   imports: [
     BrowserModule,

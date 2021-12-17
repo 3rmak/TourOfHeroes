@@ -10,12 +10,13 @@
       <h5>Heroes</h5>
     </div>
     <div class="col-sm-4">
-      <button class="btn btn-success" (click)="addHeroModal()">Add hero to team</button>
+      <button class="btn btn-success" (click)="addHeroModal()" appCheckUserPermission>Add hero to team</button>
     </div>
   </div>
 
   <app-team-heroes-list
     [team]="team"
+    [accessToEdit]="accessToEdit"
   ></app-team-heroes-list>
 
 </div>

@@ -63,7 +63,6 @@ export class HeroesAddFormComponent implements OnInit {
 
     this.availableHeroes = heroes.filter(item => !item.teamId);
     this.selectedHeroes = heroes.filter(item => item.teamId == this.team?.id);
-    console.log('oninit', this.selectedHeroes);
   }
 
 }

@@ -10,6 +10,7 @@ import { Hero, HeroService } from "../../../heroes/shared";
 })
 export class TeamHeroesListComponent implements OnInit {
   @Input() team: Team | undefined;
+  @Input() accessToEdit: boolean = false;
 
   constructor(
     private teamService: TeamService,
@@ -20,6 +21,11 @@ export class TeamHeroesListComponent implements OnInit {
   }
 
   removeHero(hero: Hero) {
+    if (!this.accessToEdit) {
+      alert('You have no such permission to edit team');
+      return;
+    }
+
     const confirmResponse = window.confirm('Are you sure to delete hero from team?');
     if(!confirmResponse || !this.team) {
       return;

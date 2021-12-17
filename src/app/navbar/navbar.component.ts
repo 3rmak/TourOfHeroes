@@ -31,7 +31,6 @@ export class NavbarComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck() {
-    console.log('doCheckHook');
     const response = this.userStorageService.getFromLocalStorage();
     if ((!response && !this.username) || (response && this.username)) {
       return;

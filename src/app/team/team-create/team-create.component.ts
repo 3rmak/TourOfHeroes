@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 
-import { createTeamValidators } from '../../config'
+import {createTeamValidators, userRolesEnum} from '../../config'
 
 import { TeamService } from "../shared";
 import { Hero, HeroService } from "../../heroes/shared";
+import {PreviousPageService, UserStorageService} from "../../shared";
 
 @Component({
   selector: 'app-team-create',
@@ -18,7 +20,10 @@ export class TeamCreateComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private teamService: TeamService,
-    private heroService: HeroService
+    private heroService: HeroService,
+    private userStorageService: UserStorageService,
+    private router: Router,
+    private previousPageService: PreviousPageService
   ) { }
 
   teamForm: FormGroup = this.fb.group({
@@ -55,6 +60,12 @@ export class TeamCreateComponent implements OnInit {
   }
 
   ngOnInit() {
+    const userData = this.userStorageService.getFromLocalStorage();
+    if (!userData || userData.role != userRolesEnum.ADMIN) {
+      const url = this.previousPageService.getPreviousUrl();
+      this.router.navigate([url]);
+    }
+
     const all = this.heroService.getAll();
     const heroes = all.filter(hero => !hero.teamId);
     this.heroes = heroes;

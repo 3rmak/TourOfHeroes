@@ -5,7 +5,8 @@ import { ITeam, Team } from "./team";
 
 const teamList: Team[] = [
   new Team('Slipknot'),
-  new Team('Abba')
+  new Team('Abba'),
+  new Team('LP', [new Hero(10, 'Chester', 1)])
 ]
 
 @Injectable()
