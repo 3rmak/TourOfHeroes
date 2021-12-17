@@ -1,0 +1,28 @@
+<div *appOpenModal="showModal">
+  <div class="layout"></div>
+  <div class="close-x" (click)="addHeroModal()"></div>
+  <form (ngSubmit)="submitChanges()">
+    <h5>Add members to team {{team?.name}}</h5>
+
+    <div class="select-list">
+      <div class="form-check" *ngFor="let hero of availableHeroes">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          [checked]="isChecked(hero)"
+          (change)="onCheckboxChange($event, hero)"
+        >
+        <label class="form-check-label">
+          {{hero.name}}
+        </label>
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+    >
+      Confirm changes
+    </button>
+  </form>
+</div>

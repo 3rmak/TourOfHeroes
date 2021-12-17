@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 
-import { Hero, heroesList } from '../shared';
+import { Hero, heroesList } from './index';
 
 @Injectable()
 export class HeroService {

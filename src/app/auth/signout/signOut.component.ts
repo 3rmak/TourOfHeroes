@@ -9,7 +9,6 @@ import { UserStorageService } from "../../shared";
 })
 export class SignOutComponent implements OnInit{
   public username: string = '';
-  // public role: string = '';
   constructor(
     private router: Router,
     private userStorageService: UserStorageService

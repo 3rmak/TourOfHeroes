@@ -1,9 +1,8 @@
 <div *ngIf="team">
-  <div *appOpenModal="showModal">
-    <div class="layout"></div>
-    <app-heroes-add-form [team]="team"></app-heroes-add-form>
-    <div class="close-x" (click)="addHeroModal()"></div>
-  </div>
+  <app-heroes-add-form
+    [team]="team"
+    [showModal]="showModal"
+  ></app-heroes-add-form>
 
   <div class="row">
     <div class="col-sm-8">

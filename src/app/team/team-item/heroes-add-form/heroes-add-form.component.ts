@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { Hero, HeroService } from "../../../heroes/shared";
 import { Team, TeamService } from "../../shared";
-import {Router} from "@angular/router";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-heroes-add-form',
@@ -12,6 +12,7 @@ import {Router} from "@angular/router";
 export class HeroesAddFormComponent implements OnInit {
   @Input() team: Team | undefined;
 
+  @Input() showModal: boolean = false;
   availableHeroes: Hero[] = [];
   selectedHeroes: Hero[] = [];
   constructor(
@@ -48,8 +49,10 @@ export class HeroesAddFormComponent implements OnInit {
     if (!response) {
       alert('Error. Changes was not saved');
     }
+  }
 
-
+  addHeroModal() {
+    this.showModal = !this.showModal;
   }
 
   ngOnInit(): void {

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
+import { FormBuilder, FormGroup, FormControl, Validators } from "@angular/forms";
 
-import {Team, TeamService} from "../shared";
+import { createTeamValidators } from '../../config'
+
+import { TeamService } from "../shared";
 import { Hero, HeroService } from "../../heroes/shared";
 
 @Component({
@@ -20,8 +22,12 @@ export class TeamCreateComponent implements OnInit {
   ) { }
 
   teamForm: FormGroup = this.fb.group({
-    "name": new FormControl(),
-    "members": new FormControl()
+    "name": new FormControl('', [
+      Validators.minLength(createTeamValidators.TEAM_NAME_MIN_LEN),
+      Validators.maxLength(createTeamValidators.TEAM_NAME_MAX_LEN),
+      Validators.required
+    ]),
+    "members": new FormControl([])
   } )
 
   createHeroTeam() {

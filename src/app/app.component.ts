@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PreviousPageService } from "../shared";
+import { PreviousPageService } from "./shared";
 
 @Component({
   selector: 'app-root',

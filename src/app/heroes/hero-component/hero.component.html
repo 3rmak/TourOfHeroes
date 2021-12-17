@@ -1,6 +1,10 @@
 <div *ngIf="hero">
   <h4>{{hero.name}} details!</h4>
   <p>id: {{hero.id}}</p>
+  <div *ngIf="hero.teamId">
+    <p>member of team: #{{hero.teamId}}</p>
+  </div>
+
   <input [(ngModel)]="hero.name" placeholder="name" ><br />
 
   <button

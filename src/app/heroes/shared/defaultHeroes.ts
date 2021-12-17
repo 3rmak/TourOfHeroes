@@ -1,4 +1,4 @@
-import { Hero } from '../shared';
+import { Hero } from './index';
 
 export const heroesList = [
   new Hero(1, 'Paul'),
