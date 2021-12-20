@@ -5,7 +5,12 @@
     <p>member of team: #{{hero.teamId}}</p>
   </div>
 
-  <input [(ngModel)]="hero.name" placeholder="name" ><br />
+  <div *ngIf="hasAccess">
+    <input [(ngModel)]="hero.name" placeholder="name" ><br />
+  </div>
+  <div *ngIf="!hasAccess">
+    <p>{{hero.name}}</p>
+  </div>
 
   <button
     class="btn btn-outline-primary"
