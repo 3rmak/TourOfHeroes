@@ -17,7 +17,7 @@ const userList: User[] = [
 export class UserService {
   private users: User[] = userList;
 
-  isEmailTaken(username: string): boolean {
+  isUsernameTaken(username: string): boolean {
     const user = this.users.find(item => item.username == username);
     if (user) {
       return true;
@@ -39,6 +39,16 @@ export class UserService {
     }
     return { message: 'unauthorized' }
   };
+
+  createUser(user: User): boolean {
+    if (this.isUsernameTaken(user.username)) {
+      return false;
+    }
+
+    this.users.push(user);
+
+    return true;
+  }
 
 
 }

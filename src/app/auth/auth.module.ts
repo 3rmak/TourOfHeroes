@@ -7,6 +7,7 @@ import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
 import { SignInComponent } from "./signIn/signIn.component";
 import { SignOutComponent } from "./signout/signOut.component";
 import { SignUpComponent } from './signUp/signup.component';
+import { ValidationErrorComponent } from "./signUp/validationError.component/validationError.component";
 
 import { authRoutes } from "./auth.routes";
 
@@ -15,7 +16,8 @@ import { authRoutes } from "./auth.routes";
     AuthLayoutComponent,
     SignInComponent,
     SignOutComponent,
-    SignUpComponent
+    SignUpComponent,
+    ValidationErrorComponent
   ],
   imports: [
     BrowserModule,
