@@ -1,0 +1,9 @@
+<div *ngIf="fieldName.touched && fieldName.invalid">
+  <div *ngFor="let field of validationErrors">
+    <div *ngIf="fieldName.hasError(field[0])"
+         class="alert alert-danger"
+    >
+      {{ field[1] }}
+    </div>
+  </div>
+</div>
